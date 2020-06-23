@@ -10,7 +10,7 @@ public:
     Stack(int max);
     Stack();
     ~Stack() { delete [] stack ; }
-    void create_Stack();
+    void createStack();
     bool isEmpty();
     bool isFull();
     void push(T x);
@@ -21,12 +21,12 @@ public:
 
 template <class T> Stack<T>::Stack(int max):size(max),top(-1){}
 
-template<class T> Stack<T>::Stack(){
-    size=10;
-    top=-1;
+template <class T> Stack<T>::Stack(){
+    size = 10;
+    top = -1;
 }
 
-template <class T> void Stack<T>::create_Stack(){
+template <class T> void Stack<T>::createStack(){
     stack = new T[size];
 }
 
@@ -43,7 +43,7 @@ template <class T> void Stack<T>::push(T x){
         cout<<"Stack overflow "<<endl;
     }
     else{
-        stack[++top]=x;
+        stack[++top] = x;
     }
 }
 
@@ -83,7 +83,7 @@ int main (){
 
     //Stack <char> s0;
     Stack<char> s1(5);
-    s1.create_Stack();
+    s1.createStack();
     s1.push('s');
     s1.push('a');
     s1.push('a');
