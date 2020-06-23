@@ -154,10 +154,10 @@ int main (){
     int len = 0;
     char buffer [50]; // for storing expression
     cout<<"Enter the expression for checking balanced parentheses : "<<endl;
-    // Other approaches can be used for reading data from stdin
-    // As I am refreshing data focus on C++ language comes later
-    // Definitely one could use more optimized approach other than fgets
-    // fgets is from c language
+    /* Other approaches can be used for reading data from stdin
+       As I am refreshing data structures focus on C++ language
+       comes later, definitely one could use more optimized approach 
+       other than fgets ,fgets was used C language */
     fgets(buffer,40, stdin);
     while(buffer[len] != '\n'){
         len++;
