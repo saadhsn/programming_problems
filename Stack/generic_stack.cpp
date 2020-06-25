@@ -73,8 +73,9 @@ template <class T > void Stack<T>::displayStack(){
         cout<<"Stack is empty, nothing to display!"<<endl;
     }
     else{
-        for(int i = top; i >= 0; i--)
+        for(int i = top; i >= 0; i--){
             cout<<stack[i]<<endl;
+        }
     }    
 }
 
