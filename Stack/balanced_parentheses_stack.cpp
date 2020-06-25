@@ -78,8 +78,9 @@ template <class T> void Stack<T>::displayStack(){
     }
     else{
         int i;
-        for( i = top;  i >= 0 ; i--)
+        for( i = top;  i >= 0 ; i--){
             cout<<stack[i]<<endl;
+        }
     }
 }
 
