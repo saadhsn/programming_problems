@@ -12,7 +12,6 @@ public:
 
 class Linkedlist {
     Node *head;
-    // Node *next;
     int size;
 
 public:
@@ -29,12 +28,15 @@ public:
     int getLast();
     bool contains(int x);
     int get(int pos);
-    // void clear(){
-    //     head = NULL;
-    // }
-    // bool hasNext(Node *node){
-    //     return (node->next != NULL);
-    // }
+    void reverse();
+    Linkedlist copyList();
+/*  void clear(){
+ *       head = NULL;
+ *  }
+ *   bool hasNext(Node *node){
+ *      return (node->next != NULL);
+ *   }
+ */
 };
 
 
@@ -97,6 +99,7 @@ void Linkedlist::removeFirst(){
 
 //Fina a node containing "key" and insert new node after it
 void Linkedlist::insertAfter(int key , int val){
+     cout<<"Inserting "<<val<<" after key = "<<key<<endl;
     bool containsKey = false;
     if(isEmpty()){
         cerr<<"List is empty , can't insert after any node !"<<endl;
@@ -120,6 +123,7 @@ void Linkedlist::insertAfter(int key , int val){
 }
 
 void Linkedlist::insertBefore(int key, int val){
+    cout<<"Inserting "<<val<<" before key = "<<key<<endl;
     bool containsKey = false; 
     if(isEmpty()){
         cerr<<"List is empty , can't insert before any node"<<endl;
@@ -254,6 +258,41 @@ int Linkedlist::get(int pos){
     }
 }
 
+void Linkedlist::reverse(){
+    if(head == NULL){
+        cerr<<"List is empty nothing to reverse"<<endl;
+        return;
+    }
+    else {
+        Node *temp = head;
+        Node *prev = NULL;
+        Node *current = NULL;
+        while (temp != NULL){
+            current = temp;
+            temp = temp->next;
+            current->next = prev;
+            prev = current;
+        }
+        head = current;
+    }
+}
+
+Linkedlist Linkedlist::copyList(){
+    if(head == NULL){
+        cerr<<"List is emmpty nothing to reverse"<<endl;
+    }
+    else{
+        Node *temp = head;
+        Linkedlist tempList(0);
+        while (temp != NULL){
+            tempList.addLast(temp->data);
+            temp = temp->next;
+        }
+        return tempList;
+    }   
+}
+
+
 
 int main () {
     
@@ -269,11 +308,17 @@ int main () {
     list.insertAfter(4,44);
     list.displayList();
     list.delNode(11);
+    list.delNode(44);
     list.displayList();
     bool containsKey = list.contains(44);
     cout<<"1 is true, 0 is false = "<<containsKey<<endl;
     cout<<"Value at index 3 = "<<list.get(3)<<endl;
-
+    Linkedlist copiedList = list.copyList();
+    cout<<"Displaying copied list : "<<endl;
+    copiedList.displayList();
+    cout<<"Checking out simple reverse list function ! "<<endl;
+    list.reverse();
+    list.displayList();
     return 0 ; 
 
 }
