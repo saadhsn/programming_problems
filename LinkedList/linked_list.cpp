@@ -97,7 +97,7 @@ void Linkedlist::removeFirst(){
     }
 }
 
-//Fina a node containing "key" and insert new node after it
+//Finds a node containing "key" and insert new node after it
 void Linkedlist::insertAfter(int key , int val){
      cout<<"Inserting "<<val<<" after key = "<<key<<endl;
     bool containsKey = false;
@@ -295,7 +295,7 @@ Linkedlist Linkedlist::copyList(){
 
 
 int main () {
-    
+
     Linkedlist list(0);
     list.addFirst(1);
     list.addLast(2);
